@@ -23,6 +23,7 @@ public class ResourceLoader {
 		return ResourceLoader.loader;
 	}
 	
+	//Entender esse metodo de criação que não está sendo usado em lugar algum
 	public MusicaNotas createMusica(String nome) throws IOException {
 		MusicaNotas musica = new MusicaNotas(nome);
 		musica.setAcordes(this.loadNotas(nome));
@@ -32,7 +33,9 @@ public class ResourceLoader {
 	public List<String> loadNotas(String nome) throws IOException {
 		return this.loadResource(nome, "notas");
 	}
-	
+
+	//Entender esse metodo de carregamento que não está sendo usado em lugar algum
+
 	public List<String> loadLetra(String nome) throws IOException {
 		return this.loadResource(nome, "letra");
 	}
