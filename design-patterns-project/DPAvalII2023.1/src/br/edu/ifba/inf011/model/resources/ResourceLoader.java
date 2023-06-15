@@ -12,7 +12,7 @@ import br.edu.ifba.inf011.model.MusicaNotas;
 
 public class ResourceLoader {
 	
-	public static String DIR_NAME = "D:\\workspace\\DPAvalII2023.1\\src\\br\\edu\\ifba\\inf011\\model\\resources\\data\\";
+	public static String DIR_NAME = "C:\\Users\\emane\\OneDrive\\Documentos\\IFBA2023\\PADROES\\design-patterns\\design-patterns-project\\DPAvalII2023.1\\src\\br\\edu\\ifba\\inf011\\model\\resources\\data\\";
 		
 	
 	public static ResourceLoader loader;
