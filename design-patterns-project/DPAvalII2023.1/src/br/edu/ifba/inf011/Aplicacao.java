@@ -5,6 +5,8 @@ import java.io.IOException;
 import br.edu.ifba.inf011.model.Musica;
 import br.edu.ifba.inf011.model.MusicaNotas;
 import br.edu.ifba.inf011.model.Player;
+import br.edu.ifba.inf011.model.Playlist;
+import br.edu.ifba.inf011.model.decorator.ConcreteDecoratorLetra;
 import br.edu.ifba.inf011.model.decorator.DecoratoMusica;
 import br.edu.ifba.inf011.model.resources.ResourceLoader;
 
@@ -15,15 +17,29 @@ public class Aplicacao {
 
 		ResourceLoader.DIR_NAME = "C:\\Users\\emane\\OneDrive\\Documentos\\IFBA2023\\PADROES\\design-patterns\\design-patterns-project\\DPAvalII2023.1\\src\\br\\edu\\ifba\\inf011\\model\\resources\\data\\";
 
-
-
-		Musica musica = new MusicaNotas("AndreaDorea");
-		System.out.println(musica.execute());
 		System.out.println("\n");
-		DecoratoMusica decoratoMusica = ResourceLoader.instance().createrMusicaComLetraOriginalTraduzida("GodSaveTheQueen","pt");
+		System.out.println("Aplicando Musica Somente");
+		System.out.println("\n");
 
-		System.out.println(decoratoMusica.execute());
+		Musica musica = new MusicaNotas("GodSaveTheQueen");
+//		System.out.println(musica.execute());
+		System.out.println("\n");
+		DecoratoMusica decoratoMusica = ResourceLoader.instance().createMusicaNotaELetra("GodSaveTheQueen");
+		DecoratoMusica decoratoMusicaNotaLetraETraduc = ResourceLoader.instance().createrMusicaComLetraOriginalTraduzida("GodSaveTheQueen","pt");
 
+		System.out.println(decoratoMusicaNotaLetraETraduc.execute());
+//
+//		System.out.println("\n");
+//		System.out.println("Aplicando Playlists");
+//		System.out.println("\n");
+//
+//		DecoratoMusica m1 =  ResourceLoader.instance().createMusicaNotaELetra("God");
+//
+//		Playlist playlist1 = new Playlist("Playlist 1");
+//		playlist1.insert(m1);
+//		playlist1.insert(m2);
+//		playlist1.insert(m3);
+//		System.out.println(playlist1.execute());
 	}
 
 	private void teste() throws IOException {

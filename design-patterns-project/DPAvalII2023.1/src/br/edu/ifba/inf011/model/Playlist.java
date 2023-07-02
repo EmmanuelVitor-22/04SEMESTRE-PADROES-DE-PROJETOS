@@ -1,46 +1,43 @@
 package br.edu.ifba.inf011.model;
 
-import br.edu.ifba.inf011.model.composite.ComponentPlaylistItem;
+import br.edu.ifba.inf011.model.composite.PlaylistItem;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Playlist implements ComponentPlaylistItem {
+// Composite no pattern  Composite
+public class Playlist implements PlaylistItem {
 
 	private final String nome;
-	private List<ComponentPlaylistItem> componenteItems;
-//	private List<Playlist> musicas;
-//	private List<Playlist> playlists;
+	private List<PlaylistItem> items;
+
 
 	public Playlist(String nome) {
 		this.nome = nome;
-		this.componenteItems = new ArrayList<>();
-//		this.musicas = new ArrayList<Musica>();
-//		this.playlists = new ArrayList<Playlist>();
+		this.items = new ArrayList<>();
+
 	}
 
-	public void insert(ComponentPlaylistItem componenteItem) {
-		this.componenteItems.add(componenteItem);
+	public void insert(PlaylistItem item) {
+		this.items.add(item);
 	}
 
-	public void remove(ComponentPlaylistItem componentPlaylistItem) {
-		this.componenteItems.remove(componentPlaylistItem);
-	}
+
 
 	public String getNome() {
 		return this.nome;
 	};
 
 	public String randomize() {
-		if (!componenteItems.isEmpty()){
+		if (!items.isEmpty()){
 			Random random = new Random();
-			int sorteadado = random.nextInt(componenteItems.size());
-			ComponentPlaylistItem componentItemAleatorio = componenteItems.get(sorteadado);
-			if (componentItemAleatorio instanceof  Musica){
-				return componentItemAleatorio.execute();
+			int sorteadado = random.nextInt(items.size());
+			PlaylistItem playlistItemItemAleatorio = items.get(sorteadado);
+			if (playlistItemItemAleatorio instanceof  Musica){
+				return playlistItemItemAleatorio.execute();
 			}
-			Playlist playlistRandom = (Playlist) componentItemAleatorio;
+			Playlist playlistRandom = (Playlist) playlistItemItemAleatorio;
 			return playlistRandom.randomize();
 		}
 		return null;
@@ -48,9 +45,9 @@ public class Playlist implements ComponentPlaylistItem {
 
 	public String execute() {
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append( this.nome + "\n");
-		for (ComponentPlaylistItem componenteItems: this.componenteItem){
-			stringBuffer.append( componenteItems.execute() + "\n");
+		stringBuffer.append( this.getNome() + "\n");
+		for (PlaylistItem item: items){
+			stringBuffer.append( item.execute() + "\n");
 
 		}
 
