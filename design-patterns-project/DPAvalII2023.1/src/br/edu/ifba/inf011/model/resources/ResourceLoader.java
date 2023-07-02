@@ -8,10 +8,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifba.inf011.model.Musica;
 import br.edu.ifba.inf011.model.MusicaNotas;
-import br.edu.ifba.inf011.model.decorator.ConcreteComponentLetra;
-import br.edu.ifba.inf011.model.decorator.ConcreteComponentLetraTraducao;
+import br.edu.ifba.inf011.model.decorator.ConcreteDecoratorLetra;
+import br.edu.ifba.inf011.model.decorator.ConcreteDecoratorLetraTraducao;
 import br.edu.ifba.inf011.model.decorator.DecoratoMusica;
 
 public class ResourceLoader {
@@ -34,16 +33,16 @@ public class ResourceLoader {
 		return musica;
 	}
 	public DecoratoMusica createMusicaNotaELetra(String nome) throws IOException {
-		MusicaNotas musicaNotas = new MusicaNotas(musicaNome);
-		ConcreteComponentLetra componentLetra = new ConcreteComponentLetra(musicaNotas);
+		MusicaNotas musicaNotas = new MusicaNotas(nome);
+		ConcreteDecoratorLetra componentLetra = new ConcreteDecoratorLetra(musicaNotas);
 		return  componentLetra;
 	}
 
 	public DecoratoMusica createrMusicaComLetraOriginalTraduzida(String nome, String extensao)
 			throws IOException {
-		MusicaNotas musicaComLetraOriginalTraduzida = new MusicaNotas(musicaNome);
-		ConcreteComponentLetra componentLetra = new ConcreteComponentLetra(musicaComLetraOriginalTraduzida);
-		return new ConcreteComponentLetraTraducao(componentLetra, "pt");
+		MusicaNotas musicaComLetraOriginalTraduzida = new MusicaNotas(nome);
+		ConcreteDecoratorLetra componentLetra = new ConcreteDecoratorLetra(musicaComLetraOriginalTraduzida);
+		return new ConcreteDecoratorLetraTraducao(componentLetra, "pt");
 	}
 
 	

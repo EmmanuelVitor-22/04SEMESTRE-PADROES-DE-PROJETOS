@@ -1,28 +1,29 @@
 package br.edu.ifba.inf011.model;
 
+import br.edu.ifba.inf011.model.composite.ComponentPlaylistItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Playlist{
+public class Playlist implements ComponentPlaylistItem {
 	
-	private String nome;
-	private List<Musica> musicas;
-	private List<Playlist> playlists;
+	private final String nome;
+	private List<ComponentPlaylistItem> componenteItems;
+//	private List<Playlist> musicas;
+//	private List<Playlist> playlists;
 	
 	public Playlist(String nome) {
 		this.nome = nome;
-		this.musicas = new ArrayList<Musica>();
-		this.playlists = new ArrayList<Playlist>();
+		this.componenteItems = new ArrayList<>();
+//		this.musicas = new ArrayList<Musica>();
+//		this.playlists = new ArrayList<Playlist>();
 	}
 	
-	public void insert(Musica musica) {
-		this.musicas.add(musica);
+	public void insert(ComponentPlaylistItem componenteItem) {
+		this.componenteItems.add(componenteItem);
 	}
 	
-	public void insert(Playlist playlist) {
-		this.playlists.add(playlist);
-	}	
-	
+
 	public String getNome() {
 		return this.nome;
 	};

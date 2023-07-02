@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.List;
 
 // Componente Concreto no pattern Decorator
-public class ConcreteComponentLetra extends  DecoratoMusica{
+public class ConcreteDecoratorLetra extends  DecoratoMusica{
     private List<String>  letra;
-    public ConcreteComponentLetra(Musica musica) throws  IOException {
+    public ConcreteDecoratorLetra(Musica musica) throws  IOException {
         super(musica);
         this.reset();
         this.setLetra();

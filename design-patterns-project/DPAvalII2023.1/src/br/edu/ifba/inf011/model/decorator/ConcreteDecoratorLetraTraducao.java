@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.util.List;
 
 // Componente Concreto no pattern Decorator
-public class ConcreteComponentLetraTraducao extends  DecoratoMusica {
+public class ConcreteDecoratorLetraTraducao extends  DecoratoMusica {
 
 
     private List<String> letraTraducao;
     private final String extensaoDaTraducao;
 
-    public ConcreteComponentLetraTraducao(Musica musica, String extensaoDaTraducao) throws IOException {
+    public ConcreteDecoratorLetraTraducao(Musica musica, String extensaoDaTraducao) throws IOException {
         super(musica);
         this.extensaoDaTraducao = extensaoDaTraducao;
         this.setLetraTraducao();
