@@ -27,7 +27,6 @@ public class ConcreteDecoratorLetra extends  DecoratoMusica{
 
     @Override
     public String play() {
-        return this.musica.play() + "\n"
-                                  + this.letra.get(this.linha++);
+        return this.musica.play() + "\n" + this.letra.get(this.linha++);
     }
 }
