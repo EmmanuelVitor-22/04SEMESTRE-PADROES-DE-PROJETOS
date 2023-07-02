@@ -23,6 +23,9 @@ public class Playlist implements ComponentPlaylistItem {
 		this.componenteItems.add(componenteItem);
 	}
 	
+	public void remove(ComponentPlaylistItem componentPlaylistItem) {
+		this.componenteItems.remove(componentPlaylistItem);
+	}
 
 	public String getNome() {
 		return this.nome;
