@@ -3,12 +3,12 @@ package br.edu.ifba.inf011.model.decorator;
 import br.edu.ifba.inf011.model.Musica;
 
 // Componente Concreto no pattern Decorator
-public class ConcreteComponentMusica implements Musica {
+public class ConcreteComponentNomeMusica implements Musica {
 
     private final String nome;
     private Integer linha;
 
-    public ConcreteComponentMusica(String nome){
+    public ConcreteComponentNomeMusica(String nome){
         this.nome = nome;
         this.reset();
     }
