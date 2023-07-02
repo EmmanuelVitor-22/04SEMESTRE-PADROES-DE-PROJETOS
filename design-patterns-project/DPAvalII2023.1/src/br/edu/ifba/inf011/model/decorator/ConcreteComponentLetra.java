@@ -5,6 +5,7 @@ import br.edu.ifba.inf011.model.Musica;
 import java.io.IOException;
 import java.util.List;
 
+// Componente Concreto no pattern Decorator
 public class ConcreteComponentLetra extends  DecoratoMusica{
     private List<String>  letra;
     public ConcreteComponentLetra(Musica musica) throws  IOException {
@@ -25,6 +26,7 @@ public class ConcreteComponentLetra extends  DecoratoMusica{
 
     @Override
     public String play() {
-        return null;
+        return this.musica.play() + "\n"
+                                  + this.letra.get(this.linha++);
     }
 }

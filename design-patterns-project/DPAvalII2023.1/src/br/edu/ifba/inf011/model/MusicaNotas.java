@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.edu.ifba.inf011.model.resources.ResourceLoader;
 
+// Concrete Decorator pattern Decorator
 public class MusicaNotas implements Musica{
 	
 	private List<String> notas;
@@ -30,7 +31,7 @@ public class MusicaNotas implements Musica{
 	}
 	
 	public String play() {
-		return this.notas.get(this.linha++);
+		return "\n" + this.notas.get(this.linha++);
 	}
 
 	public void setAcordes(List<String> notas) {

@@ -5,18 +5,24 @@ import java.io.IOException;
 import br.edu.ifba.inf011.model.Musica;
 import br.edu.ifba.inf011.model.MusicaNotas;
 import br.edu.ifba.inf011.model.Player;
+import br.edu.ifba.inf011.model.decorator.DecoratoMusica;
 import br.edu.ifba.inf011.model.resources.ResourceLoader;
 
 public class Aplicacao {
 
 	private void musica() throws IOException {
+		int i =0;
 
 		ResourceLoader.DIR_NAME = "C:\\Users\\emane\\OneDrive\\Documentos\\IFBA2023\\PADROES\\design-patterns\\design-patterns-project\\DPAvalII2023.1\\src\\br\\edu\\ifba\\inf011\\model\\resources\\data\\";
 
-		Musica musica = new MusicaNotas("GodSaveTheQueen");
 
 
+		Musica musica = new MusicaNotas("AndreaDorea");
 		System.out.println(musica.execute());
+		System.out.println("\n");
+		DecoratoMusica decoratoMusica = ResourceLoader.instance().createrMusicaComLetraOriginalTraduzida("GodSaveTheQueen","pt");
+
+		System.out.println(decoratoMusica.execute());
 
 	}
 

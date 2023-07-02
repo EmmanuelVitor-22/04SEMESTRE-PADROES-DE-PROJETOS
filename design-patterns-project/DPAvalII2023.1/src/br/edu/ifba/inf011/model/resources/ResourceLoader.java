@@ -39,7 +39,9 @@ public class ResourceLoader {
 	public List<String> loadLetra(String nome) throws IOException {
 		return this.loadResource(nome, "letra");
 	}
-
+	public List<String> loadTraducao(String nome, String extensao) throws IOException {
+		return this.loadResource(nome, extensao);
+	}
 	public List<String> loadResource(String nome, String extensao) throws IOException {
 		List<String> resource = new ArrayList<String>();
         Path path = Paths.get(ResourceLoader.DIR_NAME + nome + "." + extensao);
