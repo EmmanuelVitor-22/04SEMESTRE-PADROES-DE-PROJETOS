@@ -47,7 +47,14 @@ public class Playlist implements ComponentPlaylistItem {
 	};
 
 	public String execute() {
-		return null;
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append( this.nome + "\n");
+		for (ComponentPlaylistItem componenteItems: this.componenteItem){
+			stringBuffer.append( componenteItems.execute() + "\n");
+
+		}
+
+		return stringBuffer.toString();
 	}
 
 }
