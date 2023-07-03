@@ -24,7 +24,6 @@ public class Playlist implements PlaylistItem {
 	}
 
 
-
 	public String getNome() {
 		return this.nome;
 	};
@@ -48,7 +47,7 @@ public class Playlist implements PlaylistItem {
 		stringBuffer.append( this.getNome() + "\n");
 		for (PlaylistItem item: items){
 			stringBuffer.append( item.execute() + "\n");
-
+			stringBuffer.append(" ----------------------------------- \n");
 		}
 
 		return stringBuffer.toString();

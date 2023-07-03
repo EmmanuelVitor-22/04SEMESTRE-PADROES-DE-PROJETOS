@@ -23,23 +23,23 @@ public class Aplicacao {
 
 		Musica musica = new MusicaNotas("GodSaveTheQueen");
 //		System.out.println(musica.execute());
-		System.out.println("\n");
-		DecoratoMusica decoratoMusica = ResourceLoader.instance().createMusicaNotaELetra("GodSaveTheQueen");
+//		System.out.println("\n");
+//		DecoratoMusica decoratoMusica = ResourceLoader.instance().createMusicaNotaELetra("GodSaveTheQueen");
 		DecoratoMusica decoratoMusicaNotaLetraETraduc = ResourceLoader.instance().createrMusicaComLetraOriginalTraduzida("GodSaveTheQueen","pt");
 
 		System.out.println(decoratoMusicaNotaLetraETraduc.execute());
-//
-//		System.out.println("\n");
-//		System.out.println("Aplicando Playlists");
-//		System.out.println("\n");
-//
-//		DecoratoMusica m1 =  ResourceLoader.instance().createMusicaNotaELetra("God");
-//
-//		Playlist playlist1 = new Playlist("Playlist 1");
-//		playlist1.insert(m1);
-//		playlist1.insert(m2);
-//		playlist1.insert(m3);
-//		System.out.println(playlist1.execute());
+
+		System.out.println("\n");
+		System.out.println("Aplicando Playlists");
+		System.out.println("\n");
+
+		DecoratoMusica m1 =  ResourceLoader.instance().createMusicaNotaELetra("AndreaDorea");
+		DecoratoMusica m2 =  ResourceLoader.instance().createrMusicaComLetraOriginalTraduzida("GodSaveTheQueen","pt");
+
+		Playlist playlist1 = new Playlist("Playlist 1");
+		playlist1.insert(m1);
+		playlist1.insert(m2);
+		System.out.println(playlist1.execute());
 	}
 
 	private void teste() throws IOException {
