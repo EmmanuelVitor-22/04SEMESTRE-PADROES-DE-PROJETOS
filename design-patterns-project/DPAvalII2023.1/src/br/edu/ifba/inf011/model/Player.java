@@ -3,6 +3,8 @@ package br.edu.ifba.inf011.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Concrete Aggregate no padrao Iterator  */
+
 public class Player {
 	
 	private List<Musica> musicas;
