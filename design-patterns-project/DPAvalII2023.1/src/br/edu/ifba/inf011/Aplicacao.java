@@ -21,9 +21,14 @@ public class Aplicacao {
 		System.out.println("Aplicando Musica Somente");
 		System.out.println("\n");
 
-		DecoratoMusica musicaNotas = ResourceLoader.instance().createMusicaSomenteComNota("GodSaveTheQueen");
-		DecoratoMusica musicaNotaELetra = ResourceLoader.instance().createMusicaNotaELetra("GodSaveTheQueen");
-		System.out.println(musicaNotas.execute());
+		DecoratoMusica musicaNotas = ResourceLoader.instance().createMusicaNota("GodSaveTheQueen");
+		DecoratoMusica musicaNotaLetra = ResourceLoader.instance().createMusicaNotaLetra("GodSaveTheQueen");
+		DecoratoMusica musicaNotaLetraTraducao = ResourceLoader.instance().createMusicaNotaLetraTraducao("GodSaveTheQueen","pt");
+
+		//Exemplos de outras formas de decorar
+		DecoratoMusica musicaLetraTraducao = ResourceLoader.instance().createMusicaLetraTraducao("GodSaveTheQueen","pt");
+		DecoratoMusica musicaTraducao = ResourceLoader.instance().createMusicaTraducao("GodSaveTheQueen","pt");
+		System.out.println(musicaTraducao.execute());
 
 	}
 

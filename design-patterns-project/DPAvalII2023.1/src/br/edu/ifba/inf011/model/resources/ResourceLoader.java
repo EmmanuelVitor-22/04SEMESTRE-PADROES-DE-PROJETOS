@@ -26,25 +26,41 @@ public class ResourceLoader {
 		}
 		return ResourceLoader.loader;
 	}
-	public DecoratoMusica createMusicaSomenteComNota(String nome) throws IOException {
-		Musica musica = new ConcreteDecoratorMusicaNome(nome);
-		MusicaNotas musicaSomenteComNota = new MusicaNotas(musica);
-		return musicaSomenteComNota;
+	public DecoratoMusica createMusicaNota(String nome) throws IOException {
+		Musica musicaNome = new ConcreteDecoratorMusicaNome(nome);
+		MusicaNotas musicaNota = new MusicaNotas(musicaNome);
+		return musicaNota;
 	}
-		public DecoratoMusica createMusicaNotaELetra(String nome) throws IOException {
-			Musica musicaNome = new ConcreteDecoratorMusicaNome(nome);
-			MusicaNotas notas = new MusicaNotas(musicaNome);
-			ConcreteDecoratorLetra letra = new ConcreteDecoratorLetra(notas);
-			return letra;
-		}
+	public DecoratoMusica createMusicaNotaLetra(String nome) throws IOException {
+		Musica musicaNome = new ConcreteDecoratorMusicaNome(nome);
+		MusicaNotas musicaNota= new MusicaNotas(musicaNome);
+		ConcreteDecoratorLetra musicaNotaLetra = new ConcreteDecoratorLetra(musicaNota);
+		return musicaNotaLetra;
+	}
 
-		public DecoratoMusica createrMusicaComLetraOriginalTraduzida(String nome, String extensao)
-				throws IOException {
-			Musica musicaComLetraOriginalTraduzida = new ConcreteDecoratorMusicaNome(nome);
-			ConcreteDecoratorLetra componentLetra = new ConcreteDecoratorLetra(musicaComLetraOriginalTraduzida);
-			return new ConcreteDecoratorLetraTraducao(componentLetra, "pt");
-		}
+	public DecoratoMusica  createMusicaNotaLetraTraducao(String nome, String extensao) throws IOException {
+		Musica musicaNome = new ConcreteDecoratorMusicaNome(nome);
+		MusicaNotas musicaNota = new MusicaNotas(musicaNome);
+		ConcreteDecoratorLetra  musicaLetra = new ConcreteDecoratorLetra(musicaNota);
+		ConcreteDecoratorLetraTraducao  musicaTraducao = new ConcreteDecoratorLetraTraducao(musicaLetra, "pt");
+		return musicaTraducao;
+	}
 
+	// Alguns exemplos de outras formas de decorar (pode fazer outros tipos de deocração)
+	//Letra e tradução
+	public DecoratoMusica  createMusicaLetraTraducao(String nome, String extensao) throws IOException {
+		Musica musicaNome = new ConcreteDecoratorMusicaNome(nome);
+		ConcreteDecoratorLetra componentLetra = new ConcreteDecoratorLetra(musicaNome);
+		ConcreteDecoratorLetraTraducao letraTraducao = new ConcreteDecoratorLetraTraducao(componentLetra, "pt");
+		return letraTraducao;
+	}
+
+	// Somente tradução
+	public DecoratoMusica  createMusicaTraducao(String nome, String extensao) throws IOException {
+		Musica musicaNome = new ConcreteDecoratorMusicaNome(nome);
+		ConcreteDecoratorLetraTraducao letraTraducao = new ConcreteDecoratorLetraTraducao(musicaNome, "pt");
+		return letraTraducao;
+	}
 
 	public List<String> loadNotas(String nome) throws IOException {
 		return this.loadResource(nome, "notas");

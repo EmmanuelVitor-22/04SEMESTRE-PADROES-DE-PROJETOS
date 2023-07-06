@@ -36,11 +36,12 @@ public class ConcreteDecoratorMusicaNome implements Musica {
 
     @Override
     public String play() {
-        if (!this.finish()) {
-            this.linha++;
-            return "\n******** " + this.getNome() + " ******** \n";
+
+        if (this.finish()) {
+              return this.execute();
         }
-        return this.execute();
+        this.linha++;
+        return "\n******** " + this.getNome() + " ******** \n";
     }
     @Override
     public String execute() {
