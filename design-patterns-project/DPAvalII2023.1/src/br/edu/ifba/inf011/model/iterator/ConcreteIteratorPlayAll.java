@@ -1,15 +1,15 @@
 package br.edu.ifba.inf011.model.iterator;
 
 import br.edu.ifba.inf011.model.composite.ComponentPlaylistItem;
-
 import java.util.List;
-/* Concrete Iterator no padrão de projeto Iterator  */
-public class ConcretePlayAll implements IteratorPlaylist {
+
+// Concrete Iterator no pattern Iterator
+public class ConcreteIteratorPlayAll implements IteratorPlaylist {
 
     private final List<ComponentPlaylistItem> itemList;
     private Integer index;
 
-    public ConcretePlayAll(List<ComponentPlaylistItem> itemList) {
+    public ConcreteIteratorPlayAll(List<ComponentPlaylistItem> itemList) {
         this.itemList = itemList;
         this.reset();
     }

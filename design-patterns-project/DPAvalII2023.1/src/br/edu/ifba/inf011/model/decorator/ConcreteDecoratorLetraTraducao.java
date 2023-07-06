@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 // Componente Concreto no pattern Decorator
-/* Leaf: Composite pattern */
+// Leaf: no pattern Composite
 public class ConcreteDecoratorLetraTraducao extends  DecoratoMusica {
 
 

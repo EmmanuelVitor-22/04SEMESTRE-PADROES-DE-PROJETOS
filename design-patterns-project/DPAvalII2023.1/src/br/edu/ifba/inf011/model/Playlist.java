@@ -12,17 +12,14 @@ public class Playlist implements ComponentPlaylistItem {
 	private final String nome;
 	private List<ComponentPlaylistItem> items;
 
-
 	public Playlist(String nome) {
 		this.nome = nome;
 		this.items = new ArrayList<>();
-
 	}
 
 	public void insert(ComponentPlaylistItem item) {
 		this.items.add(item);
 	}
-
 
 	public String getNome() {
 		return this.nome;
@@ -37,15 +34,13 @@ public class Playlist implements ComponentPlaylistItem {
 		return item;
 	}
 
-
 	public String execute() {
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append( this.getNome() + "\n");
+		stringBuffer.append(  this.getNome() + "\n");
 		for (ComponentPlaylistItem item: items){
 			stringBuffer.append( item.execute() + "\n");
 			stringBuffer.append(" ----------------------------------- \n");
 		}
-
 		return stringBuffer.toString();
 	}
 

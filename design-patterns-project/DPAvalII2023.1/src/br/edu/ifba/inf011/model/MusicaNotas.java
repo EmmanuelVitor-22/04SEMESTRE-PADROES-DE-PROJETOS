@@ -5,7 +5,9 @@ import java.util.List;
 
 import br.edu.ifba.inf011.model.resources.ResourceLoader;
 
-// Concrete Decorator pattern Decorator
+// Concrete Decorator no pattern Decorator
+// Leaf no pattern  Composite
+
 public class MusicaNotas implements Musica{
 	
 	private List<String> notas;

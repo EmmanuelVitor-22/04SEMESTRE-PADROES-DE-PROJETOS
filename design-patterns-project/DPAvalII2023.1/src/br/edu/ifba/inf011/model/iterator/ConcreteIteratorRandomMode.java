@@ -6,7 +6,7 @@ import br.edu.ifba.inf011.model.composite.ComponentPlaylistItem;
 import java.util.List;
 import java.util.Random;
 
-/* Concrete Iterator no padrão de projeto Iterator  */
+// Concrete Iterator no pattern Iterator
 public class ConcreteIteratorRandomMode implements IteratorPlaylist {
 
     private Random random;

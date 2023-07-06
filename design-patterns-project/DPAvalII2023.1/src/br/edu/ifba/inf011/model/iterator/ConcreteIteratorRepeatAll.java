@@ -4,7 +4,7 @@ import br.edu.ifba.inf011.model.composite.ComponentPlaylistItem;
 
 import java.util.List;
 
-/* Concrete Iterator no padrão de projeto Iterator  */
+// Concrete Iterator no pattern Iterator
 
 public class ConcreteIteratorRepeatAll implements IteratorPlaylist {
 
