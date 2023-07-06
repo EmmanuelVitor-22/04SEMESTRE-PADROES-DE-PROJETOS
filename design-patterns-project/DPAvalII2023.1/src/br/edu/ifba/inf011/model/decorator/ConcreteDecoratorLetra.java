@@ -8,7 +8,7 @@ import java.util.List;
 // Componente Concreto no pattern Decorator
 // Leaf: no pattern Composite
 public class ConcreteDecoratorLetra extends  DecoratoMusica{
-    private List<String>  letra;
+    private List<String> letra;
     public ConcreteDecoratorLetra(Musica musica) throws  IOException {
         super(musica);
         this.reset();

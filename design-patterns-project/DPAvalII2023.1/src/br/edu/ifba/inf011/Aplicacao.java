@@ -21,25 +21,10 @@ public class Aplicacao {
 		System.out.println("Aplicando Musica Somente");
 		System.out.println("\n");
 
-		Musica musica = new MusicaNotas("GodSaveTheQueen");
-//		System.out.println(musica.execute());
-//		System.out.println("\n");
-//		DecoratoMusica decoratoMusica = ResourceLoader.instance().createMusicaNotaELetra("GodSaveTheQueen");
-		DecoratoMusica decoratoMusicaNotaLetraETraduc = ResourceLoader.instance().createrMusicaComLetraOriginalTraduzida("GodSaveTheQueen","pt");
+		DecoratoMusica musicaNotas = ResourceLoader.instance().createMusicaSomenteComNota("GodSaveTheQueen");
+		DecoratoMusica musicaNotaELetra = ResourceLoader.instance().createMusicaNotaELetra("GodSaveTheQueen");
+		System.out.println(musicaNotas.execute());
 
-		System.out.println(decoratoMusicaNotaLetraETraduc.execute());
-
-		System.out.println("\n");
-		System.out.println("Aplicando Playlists");
-		System.out.println("\n");
-
-		DecoratoMusica m1 =  ResourceLoader.instance().createMusicaNotaELetra("AndreaDorea");
-		DecoratoMusica m2 =  ResourceLoader.instance().createrMusicaComLetraOriginalTraduzida("GodSaveTheQueen","pt");
-
-		Playlist playlist1 = new Playlist("Playlist 1");
-		playlist1.insert(m1);
-		playlist1.insert(m2);
-		System.out.println(playlist1.execute());
 	}
 
 	private void teste() throws IOException {
@@ -49,11 +34,11 @@ public class Aplicacao {
 		int iCount = 0;
 
 		// ......
-
-		while (player.temProximo() && iCount < 30) {
-			System.out.println(player.proximo());
-			iCount++;
-		}
+//
+//		while (player.temProximo() && iCount < 30) {
+//			System.out.println(player.proximo());
+//			iCount++;
+//		}
 
 	}
 

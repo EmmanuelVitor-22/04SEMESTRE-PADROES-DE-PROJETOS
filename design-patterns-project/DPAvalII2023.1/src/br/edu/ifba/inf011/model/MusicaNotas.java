@@ -3,50 +3,37 @@ package br.edu.ifba.inf011.model;
 import java.io.IOException;
 import java.util.List;
 
+import br.edu.ifba.inf011.model.decorator.DecoratoMusica;
 import br.edu.ifba.inf011.model.resources.ResourceLoader;
 
 // Concrete Decorator no pattern Decorator
 // Leaf no pattern  Composite
 
-public class MusicaNotas implements Musica{
-	
+public class MusicaNotas extends DecoratoMusica {
 	private List<String> notas;
-	private String nome;
-	private Integer linha;
 	
-	public MusicaNotas(String nome) throws IOException {
-		this.nome = nome;
-		this.notas = ResourceLoader.instance().loadNotas(nome);
+	public MusicaNotas(Musica musica) throws IOException {
+		super(musica);
+		this.setAcordes();
 		this.reset();
 	}
 	
-	public String getNome() {
-		return this.nome;
+
+	public void setAcordes() throws  IOException{
+		this.notas = resourceLoader.loadNotas(getNome());
 	}
-	
-	public void reset() {
-		 this.linha = 0;
+	public String play() {
+		return this.musica.play() +  "\n" + this.notas.get(this.linha++);
 	}
-	
 	public Boolean finish() {
 		return this.linha >= this.notas.size();
 	}
-	
-	public String play() {
-		return "\n" + this.notas.get(this.linha++);
+	public void reset() {
+		 this.linha = 0;
 	}
 
-	public void setAcordes(List<String> notas) {
-		this.notas = notas;
-	}
-	
-	public String execute() {
-		StringBuffer str = new StringBuffer();
-		this.reset();
-		while(!this.finish())
-			str.append(this.play() + "\n");
-		return str.toString();	
-	}
+
+
 
 
 

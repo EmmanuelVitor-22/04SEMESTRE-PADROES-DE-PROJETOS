@@ -8,8 +8,6 @@ import java.util.List;
 // Componente Concreto no pattern Decorator
 // Leaf: no pattern Composite
 public class ConcreteDecoratorLetraTraducao extends  DecoratoMusica {
-
-
     private List<String> letraTraducao;
     private final String extensaoDaTraducao;
 
@@ -17,8 +15,8 @@ public class ConcreteDecoratorLetraTraducao extends  DecoratoMusica {
         super(musica);
         this.extensaoDaTraducao = extensaoDaTraducao;
         this.setLetraTraducao();
+        reset();
     }
-
 
     public void setLetraTraducao() throws IOException {
         this.letraTraducao = resourceLoader.loadTraducao(getNome(), extensaoDaTraducao);
@@ -31,7 +29,6 @@ public class ConcreteDecoratorLetraTraducao extends  DecoratoMusica {
 
     @Override
     public String play() {
-        return this.musica.play() + "\n"
-                + this.letraTraducao.get(this.linha++);
+        return this.musica.play() + "\n" + this.letraTraducao.get(this.linha++);
     }
 }
