@@ -14,10 +14,17 @@ import br.edu.ifba.inf011.model.resources.ResourceLoader;
 public class Aplicacao implements ObserverPlayerListener {
 
 	private  Player player;
+	private  int count =0;
 
 	public Aplicacao() {
 		this.player = new Player();
 		this.player.addListenersItem(this);
+	}
+
+	@Override
+	public void onChangeMode() {
+		System.out.println("\n ***** Modo "+player.getMode()+" ativado.");
+
 	}
 
 	private void musica() throws IOException {
@@ -97,8 +104,8 @@ public class Aplicacao implements ObserverPlayerListener {
 		playlistNova.insert(AndreaDoreaNotas);
 		playlistNova.insert(ReelAroundFountainNotaLetra);
 
-		System.out.println("\n");
-		System.out.println("\n");
+		//System.out.println("\n");
+		//System.out.println("\n");
 
 		Playlist playlistNova2 = new Playlist("Padroes de projeto lofi");
 		playlistNova2.insert(GodSaveTheQueenNotaLetraTraducao);
@@ -109,20 +116,21 @@ public class Aplicacao implements ObserverPlayerListener {
 		player.addItem(ReelAroundFountainNotaLetraTraducao);
 		player.addItem(LullabyNotas);
 		player.addItem(playlistNova);
-		player.addItem(GodSaveTheQueenNotas);
+		player.addItem(GodSaveTheQueenNotaLetra);
 		player.addItem(playlistNova2);
 
 		IteratorPlaylist iteratorPlaylist = player.generateIterator();
 
-		while (iteratorPlaylist.temProximo()) {
+		while (iteratorPlaylist.temProximo() && count<30) {
 			ComponentPlaylistItem playlistItem = iteratorPlaylist.proximo();
 			String content = playlistItem.execute();
 			System.out.println(content);
-
-			player.setMode(PlayerMode.RandomMode);
 			player.setMode(PlayerMode.RepeatAll);
+			iteratorPlaylist = player.generateIterator();
+			//player.setMode(PlayerMode.RepeatAll);
+			//iteratorPlaylist = player.generateIterator();
 
-
+			count++;
 		}
 	}
 
@@ -133,9 +141,5 @@ public class Aplicacao implements ObserverPlayerListener {
 
 	}
 
-	@Override
-	public void onChangeMode() {
-		System.out.println("\n ***** Modo "+player.getMode()+" ativado.");
 
-	}
 }

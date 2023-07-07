@@ -41,7 +41,6 @@ public class ConcreteDecoratorMusicaNome implements Musica {
             this.linha++;
             return "\n******** " + this.getNome() + " ********\n";
         }
-
             return this.execute();
 
     }
