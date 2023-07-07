@@ -36,10 +36,10 @@ public class Playlist implements ComponentPlaylistItem {
 
 	public String execute() {
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(  this.getNome() + "\n");
+
 		for (ComponentPlaylistItem item: items){
-			stringBuffer.append( item.execute() + "\n");
-			stringBuffer.append(" ----------------------------------- \n");
+			stringBuffer.append( item.execute() );
+//
 		}
 		return stringBuffer.toString();
 	}

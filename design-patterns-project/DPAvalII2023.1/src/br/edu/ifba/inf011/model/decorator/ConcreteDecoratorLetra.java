@@ -13,8 +13,6 @@ public class ConcreteDecoratorLetra extends  DecoratoMusica{
         super(musica);
         this.reset();
         this.setLetra();
-
-
     }
     public void setLetra() throws IOException {
         this.letra = resourceLoader.loadLetra(getNome());
@@ -24,7 +22,6 @@ public class ConcreteDecoratorLetra extends  DecoratoMusica{
     public Boolean finish() {
         return  this.linha >=this.letra.size();
     }
-
     @Override
     public String play() {
         return this.musica.play() + "\n" + this.letra.get(this.linha++);

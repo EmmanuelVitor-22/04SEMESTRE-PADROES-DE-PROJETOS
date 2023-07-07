@@ -14,11 +14,9 @@ public class MusicaNotas extends DecoratoMusica {
 	
 	public MusicaNotas(Musica musica) throws IOException {
 		super(musica);
-		this.setAcordes();
 		this.reset();
+		this.setAcordes();
 	}
-	
-
 	public void setAcordes() throws  IOException{
 		this.notas = resourceLoader.loadNotas(getNome());
 	}
@@ -28,15 +26,14 @@ public class MusicaNotas extends DecoratoMusica {
 	public Boolean finish() {
 		return this.linha >= this.notas.size();
 	}
-	public void reset() {
-		 this.linha = 0;
-	}
 
 
 
 
 
 
-	
+
+
+
 
 }
